@@ -1,14 +1,19 @@
 const express =  require('express');
-// const router = require('./routes/routes');
-const userRoutes = require('./routes/userRoutes');
+const bookRouter = require('./routes/bookRoutes');
+const userRouter = require('./routes/userRoutes');
+const postRouter = require('./routes/postRoutes');
+const storyRouter =  require('./routes/storyRoutes');
+
 const cors = require('cors');
 require('./db/connection');
 
 const app = new express();
 
 app.use(cors());
-app.use('/',router); // redirecting to routes
-app.use('/user', userRoutes);
+app.use('/books',bookRouter); // redirecting to routes
+app.use('/user', userRouter);
+app.use('/posts', postRouter);
+app.use('/', storyRouter);
 
 
 
